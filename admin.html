@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softcore University - Administration</title>
+    <style>
+        /* CSS Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .address {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background-color: #004080;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #0055a5;
+        }
+
+        .main-content {
+            display: flex;
+            margin: 30px 0;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+
+        .sidebar h3 {
+            color: #003366;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 8px 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #f0f0f0;
+            color: #004080;
+            padding-left: 10px;
+        }
+
+        .content {
+            flex: 1;
+            background-color: white;
+            padding: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h2 {
+            color: #003366;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .department {
+            margin-bottom: 25px;
+        }
+
+        .department h3 {
+            color: #004080;
+            margin-bottom: 10px;
+        }
+
+        .department p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 10px;
+            color: #004080;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Softcore University</div>
+            <div class="address">P.O BOX 54998-00200, Nairobi | Mukoma Road, Nairobi</div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="administration.html">Administration</a></li>
+                <li><a href="faculties.html">Faculties</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <aside class="sidebar">
+                <h3>Administration</h3>
+                <ul>
+                    <li><a href="#vc">Office of the Vice Chancellor</a></li>
+                    <li><a href="#finance">Finance Department</a></li>
+                    <li><a href="#hr">Human Resource Department</a></li>
+                    <li><a href="#research">Research and Extension</a></li>
+                </ul>
+            </aside>
+
+            <main class="content">
+                <h2>University Administration</h2>
+                
+                <section id="vc" class="department">
+                    <h3>Office of the Vice Chancellor</h3>
+                    <p>The Office of the Vice Chancellor provides strategic leadership and direction for the university. The VC is responsible for the overall administration of the university and the implementation of policies and decisions of the University Council.</p>
+                    <p>Key functions include academic leadership, financial management, human resource development, and maintaining relationships with stakeholders.</p>
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p>Email: vc@softcore.co.ke</p>
+                        <p>Phone: +254 700 123456</p>
+                        <p>Location: Administration Block, 1st Floor</p>
+                    </div>
+                </section>
+
+                <section id="finance" class="department">
+                    <h3>Finance Department</h3>
+                    <p>The Finance Department manages all financial matters of the university including budgeting, accounting, financial reporting, and procurement.</p>
+                    <p>Our services include student fee management, staff payroll processing, financial planning, and ensuring compliance with financial regulations.</p>
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p>Email: finance@softcore.co.ke</p>
+                        <p>Phone: +254 700 123457</p>
+                        <p>Location: Administration Block, Ground Floor</p>
+                    </div>
+                </section>
+
+                <section id="hr" class="department">
+                    <h3>Human Resource Department</h3>
+                    <p>The HR Department is responsible for recruitment, staff development, performance management, and employee welfare.</p>
+                    <p>We handle all matters related to employment contracts, benefits, training programs, and maintaining a positive work environment.</p>
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p>Email: hr@softcore.co.ke</p>
+                        <p>Phone: +254 700 123458</p>
+                        <p>Location: Administration Block, 2nd Floor</p>
+                    </div>
+                </section>
+
+                <section id="research" class="department">
+                    <h3>Research and Extension</h3>
+                    <p>The Research and Extension Department coordinates all research activities within the university and facilitates collaboration with industry partners.</p>
+                    <p>We manage research grants, intellectual property, publication of research findings, and community outreach programs.</p>
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p>Email: research@softcore.co.ke</p>
+                        <p>Phone: +254 103876126</p>
+                        <p>Location: Research Complex, Main Campus</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Softcore University. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
