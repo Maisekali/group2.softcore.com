@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softcore University - Admissions</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .university-name {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .university-motto {
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .address-bar {
+            background-color: #002244;
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #004080;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .main-nav {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .main-nav li a:hover {
+            background-color: #0055a5;
+        }
+
+        .current {
+            background-color: #002244;
+            font-weight: bold;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: #004080;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Admissions Hero Section */
+        .admissions-hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 68, 128, 0.8)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .admissions-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .admissions-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff6600;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Admissions Content */
+        .admissions-content {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Sidebar */
+        .admissions-sidebar {
+            width: 300px;
+        }
+
+        .sidebar-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-card h3 {
+            color: #003366;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar-card ul {
+            list-style: none;
+        }
+
+        .sidebar-card ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-card ul li a {
+            color: #004080;
+            text-decoration: none;
+            display: block;
+            padding: 8px 5px;
+            transition: all 0.3s;
+        }
+
+        .sidebar-card ul li ita:hover {
+            color: #002244;
+            padding-left: 10px;
+        }
+
+        .deadline-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .deadline-date {
+            font-weight: bold;
+            color: #003366;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+        }
+
+        .content-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .content-card h2 {
+            color: #003366;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .content-card h3 {
+            color: #004080;
+            margin: 25px 0 15px;
+        }
+
+        .content-card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Requirements List */
+        .requirements-list {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        .requirements-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .requirements-list li:before {
+            content: "•";
+            color: #ff6600;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Application Steps */
+        .steps-container {
+            counter-reset: step-counter;
+        }
+
+        .step {
+            position: relative;
+            padding-left: 70px;
+            margin-bottom: 30px;
+            min-height: 50px;
+        }
+
+        .step:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background-color: #003366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .step h4 {
+            color: #004080;
+            margin-bottom: 10px;
+        }
+
+        /* Fees Table */
+        .fees-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .fees-table th, .fees-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .fees-table th {
+            background-color: #f5f7fa;
+            color: #004080;
+            font-weight: 600;
+        }
+
+        .fees-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .fee-amount {
+            font-weight: bold;
+            color: #006600;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            color: #004080;
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:after {
+            content: "+";
+            font-size: 1.5rem;
+            color: #003366;
+        }
+
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .admissions-content {
+                flex-direction: column;
+            }
+
+            .admissions-sidebar {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+
+            .main-nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .main-nav li {
+                text-align: center;
+            }
+
+            .university-name {
+                font-size: 1.8rem;
+            }
+
+            .admissions-hero h1 {
+                font-size: 2rem;
+            }
+
+            .admissions-hero p {
+                font-size: 1rem;
+            }
+
+            .fees-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="university-name">Softcore University</div>
+            <div class="university-motto">Your Future Starts Here</div>
+        </div>
+    </header>
+
+    <div class="address-bar">
+        <div class="container">
+            P.O BOX 54998-00200, Nairobi | Mukoma Road, Nairobi
+        </div>
+    </div>
+
+    <nav>
+        <div class="container nav-container">
+            <ul class="main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="admin.html">Administration</a></li>
+                <li><a href="faculties.html">Faculties</a></li>
+                <li><a href="admission.html" class="current">Admissions</a></li>
+                <li><a href="admin.html">Research</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> &raquo; 
+            <span>Admissions</span>
+        </div>
+
+        <section class="admissions-hero">
+            <h1>Admissions to Softcore University</h1>
+            <p>Begin your journey to academic excellence at one of Kenya's leading universities. Discover our programs, admission requirements, and application process.</p>
+            <a href="#apply-now" class="cta-button">Apply Now</a>
+        </section>
+
+        <div class="admissions-content">
+            <aside class="admissions-sidebar">
+                <div class="sidebar-card">
+                    <h3>Admissions Quick Links</h3>
+                    <ul>
+                        <li><a href="#requirements">Admission Requirements</a></li>
+                        <li><a href="#how-to-apply">How to Apply</a></li>
+                        <li><a href="#programs">Programs Offered</a></li>
+                        <li><a href="#fees">Tuition Fees</a></li>
+                        <li><a href="#deadlines">Application Deadlines</a></li>
+                        <li><a href="#faq">FAQs</a></li>
+                        <li><a href="#contact">Contact Admissions</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Important Deadlines</h3>
+                    <div class="deadline-item">
+                        <span>Undergraduate Applications</span>
+                        <span class="deadline-date">May 30, 2025</span>
+                    </div>
+                    <div class="deadline-item">
+                        <span>Postgraduate Applications</span>
+                        <span class="deadline-date">June 15, 2025</span>
+                    </div>
+                    <div class="deadline-item">
+                        <span>Diploma Programs</span>
+                        <span class="deadline-date">July 1, 2025</span>
+                    </div>
+                    <div class="deadline-item">
+                        <span>International Students</span>
+                        <span class="deadline-date">April 30, 2025</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Admissions Office</h3>
+                    <p>For any inquiries regarding admissions, please contact:</p>
+                    <p><strong>Email:</strong> admissions@softcore.co.ke</p>
+                    <p><strong>Phone:</strong> +254 700 123456</p>
+                    <p><strong>Hours:</strong> Mon-Fri, 8:00 AM - 5:00 PM</p>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Download Forms</h3>
+                    <ul>
+                        <li><a href="#">Undergraduate Application Form</a></li>
+                        <li><a href="#">Postgraduate Application Form</a></li>
+                        <li><a href="#">Financial Aid Form</a></li>
+                        <li><a href="#">Hostel Application Form</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <div class="content-card" id="requirements">
+                    <h2>Admission Requirements</h2>
+                    <p>Admission to Softcore University is based on academic qualifications and other criteria as specified for each program. Below are the general requirements:</p>
+                    
+                    <h3>Undergraduate Programs</h3>
+                    <ul class="requirements-list">
+                        <li>KCSE certificate with a mean grade of C+ and above or equivalent</li>
+                        <li>Minimum subject requirements as specified for each program</li>
+                        <li>Completed application form with all required documents</li>
+                        <li>Application fee payment receipt</li>
+                        <li>Two recent passport-sized photographs</li>
+                        <li>Copy of national ID or passport</li>
+                    </ul>
+
+                    <h3>Postgraduate Programs</h3>
+                    <ul class="requirements-list">
+                        <li>Relevant bachelor's degree with at least Second Class Honors (Upper Division) or equivalent</li>
+                        <li>Professional qualifications where applicable</li>
+                        <li>Completed application form with all required documents</li>
+                        <li>Academic transcripts</li>
+                        <li>Two letters of recommendation</li>
+                        <li>Curriculum Vitae</li>
+                        <li>Research proposal (for research-based programs)</li>
+                    </ul>
+
+                    <h3>Diploma & Certificate Programs</h3>
+                    <ul class="requirements-list">
+                        <li>KCSE certificate with a mean grade of C- and above or equivalent</li>
+                        <li>Completed application form with all required documents</li>
+                        <li>Application fee payment receipt</li>
+                        <li>Copy of national ID or passport</li>
+                    </ul>
+
+                    <h3>International Students</h3>
+                    <p>International applicants must meet equivalent qualifications and provide:</p>
+                    <ul class="requirements-list">
+                        <li>Certified copies of academic certificates and transcripts</li>
+                        <li>Evidence of English language proficiency (where applicable)</li>
+                        <li>Valid student visa/passport</li>
+                        <li>Medical insurance cover</li>
+                    </ul>
+                </div>
+
+                <div class="content-card" id="how-to-apply">
+                    <h2>How to Apply</h2>
+                    <p>Follow these steps to complete your application to Softcore University:</p>
+                    
+                    <div class="steps-container">
+                        <div class="step">
+                            <h4>Choose Your Program</h4>
+                            <p>Select the program you wish to apply for from our list of undergraduate, postgraduate, or diploma programs.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Check Requirements</h4>
+                            <p>Ensure you meet all the admission requirements for your chosen program.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Complete Application Form</h4>
+                            <p>Fill out the online application form or download and complete the PDF version.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Prepare Documents</h4>
+                            <p>Gather all required documents including academic certificates, ID, and passport photos.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Pay Application Fee</h4>
+                            <p>Pay the non-refundable application fee through the provided payment methods.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Submit Application</h4>
+                            <p>Submit your completed application form and all supporting documents to the Admissions Office.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Application Review</h4>
+                            <p>Wait for the Admissions Committee to review your application (typically 2-4 weeks).</p>
+                        </div>
+                        <div class="step">
+                            <h4>Receive Admission Letter</h4>
+                            <p>Successful applicants will receive an official admission letter with registration details.</p>
+                        </div>
+                    </div>
+
+                    <div id="apply-now" style="text-align: center; margin-top: 40px;">
+                        <a href="#" class="cta-button">Begin Online Application</a>
+                        <p style="margin-top: 15px;">Or download the <a href="#" style="color: #004080; font-weight: bold;">application form</a> to apply offline</p>
+                    </div>
+                </div>
+
+                <div class="content-card" id="fees">
+                    <h2>Tuition Fees & Financial Aid</h2>
+                    <p>Softcore University offers competitive tuition fees with various payment options and financial aid opportunities:</p>
+                    
+      
