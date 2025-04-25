@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softcore University - News & Announcements</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        /* News Section Container */
+        .news-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        /* News Header */
+        .news-header {
+            background-color: #003366;
+            color: white;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+        }
+        
+        .news-header h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .news-header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+        
+        /* Search Bar */
+        .news-search {
+            padding: 0 30px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .search-container {
+            display: flex;
+            max-width: 500px;
+        }
+        
+        .search-container input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .search-container input:focus {
+            outline: none;
+            border-color: #003366;
+        }
+        
+        .search-container button {
+            padding: 0 20px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .search-container button:hover {
+            background-color: #c0392b;
+        }
+        
+        /* News Articles */
+        .news-articles {
+            padding: 0 30px;
+        }
+        
+        .news-article {
+            padding: 25px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .news-article:last-child {
+            border-bottom: none;
+        }
+        
+        .article-date {
+            display: inline-block;
+            background-color: #f1f5f9;
+            color: #003366;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .article-title {
+            color: #003366;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .article-excerpt {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        
+        .article-content {
+            color: #444;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            display: none; /* Hidden by default */
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #e74c3c;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .read-more:hover {
+            color: #c0392b;
+            text-decoration: underline;
+        }
+        
+        .article-meta {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .news-header {
+                padding: 20px;
+            }
+            
+            .news-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .news-articles, .news-search {
+                padding: 0 20px 20px;
+            }
+            
+            .article-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="news-container">
+        <div class="news-header">
+            <h1>University News & Announcements</h1>
+            <p>Stay updated with the latest happenings at Softcore University</p>
+        </div>
+        
+        <div class="news-search">
+            <div class="search-container">
+                <input type="text" placeholder="Search news articles...">
+                <button>Search</button>
+            </div>
+        </div>
+        
+        <div class="news-articles">
+            <!-- Article 1 -->
+            <div class="news-article">
+                <div class="article-date">March 15, 2025</div>
+                <h2 class="article-title">University Ranked Among Top 10 in Kenya</h2>
+                <p class="article-excerpt">
+                    Softcore University has been ranked among the top 10 universities in Kenya according to the latest rankings released by the Education Commission of Kenya.
+                </p>
+                <div class="article-content">
+                    <p>The prestigious ranking places Softcore University at position 8 nationally, marking a significant improvement from last year's position at 12. The ranking considers several factors including academic reputation, research output, student-to-faculty ratio, and graduate employability.</p>
+                    <p>Vice Chancellor Dr. Jane Mwangi expressed her delight at the achievement: "This recognition reflects our commitment to academic excellence and innovation. Our faculty and students have worked tirelessly to elevate our standards, and this ranking validates those efforts."</p>
+                    <p>The university particularly excelled in the engineering and technology categories, with its Electrical Engineering program being ranked 3rd nationally.</p>
+                </div>
+                <a class="read-more" onclick="toggleReadMore(this)">Read Full Story →</a>
+                <div class="article-meta">Category: University Rankings | Tags: achievement, recognition</div>
+            </div>
+            
+            <!-- Article 2 -->
+            <div class="news-article">
+                <div class="article-date">April 10, 2025</div>
+                <h2 class="article-title">New Engineering Complex Inaugurated</h2>
+                <p class="article-excerpt">
+                    The university has inaugurated a state-of-the-art engineering complex equipped with modern technology to enhance teaching and research capabilities.
+                </p>
+                <div class="article-content">
+                    <p>The new 8-story Engineering Innovation Center was officially opened by the Cabinet Secretary for Education, featuring cutting-edge laboratories, smart classrooms, and collaborative workspaces. The KSh 2.3 billion facility is the largest infrastructure project in the university's history.</p>
+                    <p>Key features include:</p>
+                    <ul>
+                        <li>Advanced robotics lab with industrial-grade equipment</li>
+                        <li>Renewable energy research center with solar and wind testing facilities</li>
+                        <li>3D printing and rapid prototyping workshop</li>
+                        <li>200-seat auditorium with teleconferencing capabilities</li>
+                    </ul>
+                    <p>Dean of Engineering Prof. James Okoth noted, "This complex positions us as a regional leader in engineering education. Our students will now train with equipment matching what they'll find in industry, giving them a competitive edge."</p>
+                </div>
+                <a class="read-more" onclick="toggleReadMore(this)">Read Full Story →</a>
+                <div class="article-meta">Category: Infrastructure | Tags: engineering, facilities</div>
+            </div>
+            
+            <!-- Article 3 -->
+            <div class="news-article">
+                <div class="article-date">May 13, 2025</div>
+                <h2 class="article-title">15th Annual Research Conference Announced</h2>
+                <p class="article-excerpt">
+                    The university will host its 15th Annual Research Conference on May 13-20, 2025, with the call for papers now open to academics worldwide.
+                </p>
+                <div class="article-content">
+                    <p>This year's theme is "Innovation for Sustainable Development" with keynote speakers including Nobel laureate Dr. Wangari Muthoni and Google AI lead Dr. Kwame Johnson. The conference will feature:</p>
+                    <ul>
+                        <li>Over 50 parallel sessions across disciplines</li>
+                        <li>Poster presentations by graduate students</li>
+                        <li>Industry roundtables connecting researchers with private sector</li>
+                        <li>Startup pitch competition with KSh 5 million in seed funding</li>
+                    </ul>
+                    <p>Conference chair Dr. Amina Said emphasized the international scope: "We've received abstract submissions from 28 countries already. This is becoming a premier platform for African research to connect globally."</p>
+                    <p>Early bird registration is available until March 30th, with special rates for students and delegates from developing countries.</p>
+                </div>
+                <a class="read-more" onclick="toggleReadMore(this)">Read Full Story →</a>
+                <div class="article-meta">Category: Events | Tags: research, conference</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle read more functionality
+        function toggleReadMore(link) {
+            const article = link.parentElement;
+            const content = article.querySelector('.article-content');
+            const isExpanded = content.style.display === 'block';
+            
+            content.style.display = isExpanded ? 'none' : 'block';
+            link.textContent = isExpanded ? 'Read Full Story →' : 'Show Less ▲';
+            
+            // Smooth scroll to maintain reading position
+            if (!isExpanded) {
+                article.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+        
+        // Simple search functionality
+        document.querySelector('.search-container button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-container input').value.toLowerCase();
+            const articles = document.querySelectorAll('.news-article');
+            
+            articles.forEach(article => {
+                const text = article.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
