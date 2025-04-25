@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Network - Softcore University</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        
+        /* Alumni Container */
+        .alumni-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        /* Alumni Header */
+        .alumni-header {
+            background-color: #003366;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .alumni-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .alumni-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Alumni Content */
+        .alumni-content {
+            padding: 30px;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #003366;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .benefit-card {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            color: #e74c3c;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-title {
+            color: #003366;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-description {
+            color: #555;
+        }
+        
+        /* Events Section */
+        .events-section {
+            margin-bottom: 40px;
+        }
+        
+        .events-list {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .event-card {
+            display: flex;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .event-date {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            min-width: 100px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .event-day {
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .event-month {
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .event-details {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .event-title {
+            color: #003366;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .event-description {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .event-meta {
+            display: flex;
+            gap: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Alumni Stories */
+        .stories-section {
+            margin-bottom: 40px;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .story-card {
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .story-image {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .story-content {
+            padding: 20px;
+        }
+        
+        .story-name {
+            color: #003366;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .story-title {
+            color: #e74c3c;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .story-excerpt {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .read-story {
+            color: #e74c3c;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        /* Connect Form */
+        .connect-form {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .form-title {
+            color: #003366;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #003366;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .submit-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .alumni-header {
+                padding: 20px;
+            }
+            
+            .alumni-header h1 {
+                font-size: 2rem;
+            }
+            
+            .alumni-content {
+                padding: 20px;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .event-card {
+                flex-direction: column;
+            }
+            
+            .event-date {
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+                padding: 10px;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="alumni-container">
+        <div class="alumni-header">
+            <h1>Softcore University Alumni Network</h1>
+            <p>Stay connected with your alma mater and fellow graduates through our vibrant alumni community</p>
+        </div>
+        
+        <div class="alumni-content">
+            <!-- Benefits Section -->
+            <div class="benefits-section">
+                <h2 class="section-title">Alumni Benefits</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="benefit-title">Networking Opportunities</h3>
+                        <p class="benefit-description">Connect with fellow alumni across industries through our exclusive networking events and online platform.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="benefit-title">Career Services</h3>
+                        <p class="benefit-description">Access career counseling, job postings, and recruitment opportunities reserved for our alumni.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 class="benefit-title">Library Access</h3>
+                        <p class="benefit-description">Enjoy continued access to our extensive digital library resources and research databases.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="benefit-title">Lifelong Learning</h3>
+                        <p class="benefit-description">Audit courses, attend lectures, and access professional development programs at discounted rates.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <h3 class="benefit-title">Campus Privileges</h3>
+                        <p class="benefit-description">Use sports facilities, attend cultural events, and enjoy discounts at campus services.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="benefit-title">Mentorship Programs</h3>
+                        <p class="benefit-description">Give back by mentoring current students or receive guidance from senior alumni in your field.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Events Section -->
+            <div class="events-section">
+                <h2 class="section-title">Upcoming Alumni Events</h2>
+                <div class="events-list">
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-day">15</span>
+                            <span class="event-month">June</span>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Annual Alumni Homecoming</h3>
+                            <p class="event-description">Join us for our biggest alumni event of the year featuring campus tours, faculty presentations, and class reunions.</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 9:00 AM - 6:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Main Campus, Softcore University</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-day">28</span>
+                            <span class="event-month">July</span>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Engineering Alumni Networking Night</h3>
+                            <p class="event-description">Exclusive networking event for engineering alumni featuring panel discussions with industry leaders.</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 6:00 PM - 9:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> New Engineering Complex</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-day">10</span>
+                            <span class="event-month">Sep</span>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Young Alumni Career Workshop</h3>
+                            <p class="event-description">Career development workshop for recent graduates covering resume building, interview skills, and professional networking.</p>
+                            <div class="event-meta">
+                                <span><i class="fas fa-clock"></i> 10:00 AM - 2:00 PM</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Virtual (Zoom)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alumni Stories -->
+            <div class="stories-section">
+                <h2 class="section-title">Alumni Success Stories</h2>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <div class="story-content">
+                            <h3 class="story-name">Dr. Sarah Kiprono</h3>
+                            <p class="story-title">B.Eng Electrical Engineering, 2010 | Senior Engineer at Kenya Power</p>
+                            <p class="story-excerpt">"My time at Softcore University provided the technical foundation and problem-solving skills that have been crucial throughout my career in energy systems."</p>
+                            <a href="#" class="read-story">Read Full Story →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <div class="story-content">
+                            <h3 class="story-name">James Mwangi</h3>
+                            <p class="story-title">B.Tech Electrical & Electronic, 2015 | Founder of TechSolve Africa</p>
+                            <p class="story-excerpt">"The entrepreneurship program I participated in at Softcore gave me the confidence to start my own renewable energy solutions company."</p>
+                            <a href="#" class="read-story">Read Full Story →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-image" style="background-image: url('https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');"></div>
+                        <div class="story-content">
+                            <h3 class="story-name">Amina Wambui</h3>
+                            <p class="story-title">B.Sc Electrical & Communication, 2018 | Systems Architect at Safaricom</p>
+                            <p class="story-excerpt">"The hands-on projects and industry collaborations during my studies prepared me perfectly for my role in telecommunications infrastructure."</p>
+                            <a href="#" class="read-story">Read Full Story →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Connect Form -->
+            <div class="connect-form">
+                <h2 class="form-title">Join Our Alumni Network</h2>
+                <form id="alumniForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="alumni-name">Full Name</label>
+                            <input type="text" id="alumni-name" name="alumni-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="alumni-email">Email Address</label>
+                            <input type="email" id="alumni-email" name="alumni-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="graduation-year">Graduation Year</label>
+                            <select id="graduation-year" name="graduation-year" required>
+                                <option value="">Select Year</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
+                                <option value="2009">2009</option>
+                                <option value="2008">2008</option>
+                                <option value="2007">2007</option>
+                                <option value="2006">2006</option>
+                                <option value="2005">2005</option>
+                                <option value="2004">2004</option>
+                                <option value="2003">2003</option>
+                                <option value="2002">2002</option>
+                                <option value="2001">2001</option>
+                                <option value="2000">2000</option>
+                                <option value="1999">1999</option>
+                                <option value="1998">1998</option>
+                                <option value="1997">1997</option>
+                                <option value="1996">1996</option>
+                                <option value="1995">1995</option>
+                                <option value="1994">1994</option>
+                                <option value="1993">1993</option>
+                                <option value="1992">1992</option>
+                                <option value="1991">1991</option>
+                                <option value="1990">1990</option>
+                                <option value="1989">1989</option>
+                                <option value="1988">1988</option>
+                                <option value="1987">1987</option>
+                                <option value="1986">1986</option>
+                                <option value="1985">1985</option>
+                                <option value="1984">1984</option>
+                                <option value="1983">1983</option>
+                                <option value="1982">1982</option>
+                                <option value="1981">1981</option>
+                                <option value="1980">1980</option>
+                                <option value="1979">1979</option>
+                                <option value="1978">1978</option>
+                                <option value="1977">1977</option>
+                                <option value="1976">1976</option>
+                                <option value="1975">1975</option>
+                                <option value="1974">1974</option>
+                                <option value="1973">1973</option>
+                                <option value="1972">1972</option>
+                                <option value="1971">1971</option>
+                                <option value="1970">1970</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="program">Program Studied</label>
+                            <select id="program" name="program" required>
+                                <option value="">Select Program</option>
+                                <option value="btech-ee">B.Tech Electrical & Electronic Engineering</option>
+                                <option value="beng-ee">B.Eng Electrical Engineering</option>
+                                <option value="bsc-ece">B.Sc Electrical & Communication Engineering</option>
+                                <option value="mechanical">Mechanical Engineering</option>
+                                <option value="civil">Civil Engineering</option>
+                                <option value="medicine">Medicine</option>
+                                <option value="social-sciences">Social Sciences</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="current-position">Current Position/Organization</label>
+                            <input type="text" id="current-position" name="current-position">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="alumni-interests">Areas of Interest (Select all that apply)</label>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;">
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="alumni-interests" value="mentoring"> Mentoring Students
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="alumni-interests" value="networking"> Networking Events
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="alumni-interests" value="career"> Career Services
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="alumni-interests" value="giving"> Giving Back/Donations
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="alumni-interests" value="reunions"> Class Reunions
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 5px;">
+                                    <input type="checkbox" name="alumni-interests" value="research"> Research Collaboration
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="alumni-message">Additional Information</label>
+                            <textarea id="alumni-message" name="alumni-message"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Join Alumni Network</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form submission handling
+        document.getElementById('alumniForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('alumni-name').value;
+            const email = document.getElementById('alumni-email').value;
+            const program = document.getElementById('program').value;
+            
+            // Simple validation
+            if (!name || !email || !program) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // In a real application, you would send this data to a server
+            console.log('Alumni form submitted:', { name, email, program });
+            
+            // Show success message
+            alert('Thank you for joining the Softcore University Alumni Network! Welcome back!');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
