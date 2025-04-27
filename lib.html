@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softcore University Library</title>
+    <link rel="stylesheet" href="styles.css">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #007BFF;
+}
+
+#search {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#search button {
+    padding: 10px 15px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search button:hover {
+    background: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+#resultList {
+    list-style: none;
+    padding: 0;
+}
+
+#resultList li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #007BFF;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+  </style>
+</head>
+<body>
+    <header>
+        <h1>Softcore University Library</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#catalog">Catalog</a></li>
+                <li><a href="#new-arrivals">New Arrivals</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="search">
+        <h2>Search the Library</h2>
+        <input type="text" id="searchInput" placeholder="Search for books, journals, etc." />
+        <button type="button" onclick="searchLibrary()">Search</button>
+    </section>
+
+    <section id="results">
+        <h2>Search Results</h2>
+        <ul id="resultList"></ul>
+    </section>
+
+    <section id="about">
+        <h2>About the Library</h2>
+        <p>The Softcore University Library provides access to a vast collection of resources, including books, journals, and digital media to support the academic needs of our students and faculty.</p>
+    </section>
+
+    <section id="catalog">
+        <h2>Library Catalog</h2>
+        <ul id="catalogList">
+            <li>Advanced Engineering Mathematics</li>
+            <li>Introduction to Machine Learning</li>
+            <li>Modern Web Development</li>
+            <li>Data Structures and Algorithms</li>
+            <li>Artificial Intelligence: A Modern Approach</li>
+            <li>Web Design: A Beginner's Guide</li>
+        </ul>
+    </section>
+
+    <section id="new-arrivals">
+        <h2>New Arrivals</h2>
+        <ul>
+            <li>Title: Advanced Engineering Mathematics</li>
+            <li>Title: Introduction to Machine Learning</li>
+            <li>Title: Modern Web Development</li>
+        </ul>
+    </section>
+
+    <section id="services">
+        <h2>Library Services</h2>
+        <ul>
+            <li>Reference Services</li>
+            <li>Interlibrary Loan</li>
+            <li>Study Rooms</li>
+            <li>Workshops and Training</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:library@softcore.co.ke">library@softcore.co.ke</a></p>
+        <p>Phone: +254 700 000 000</p>
+        <p>Address: P.O BOX 54998 - 00200, Nairobi, Mukoma Road</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Softcore University. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function searchLibrary() {
+            // Get the search input value
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const catalogItems = document.querySelectorAll('#catalogList li');
+            const resultList = document.getElementById('resultList');
+
+            // Clear previous results
+            resultList.innerHTML = '';
+
+            // Filter through catalog items
+            catalogItems.forEach(item => {
+                if (item.textContent.toLowerCase().includes(input)) {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = item.textContent;
+                    resultList.appendChild(listItem);
+                }
+            });
+
+            // If no results found
+            if (resultList.innerHTML === '') {
+                const noResultItem = document.createElement('li');
+                noResultItem.textContent = 'No results found.';
+                resultList.appendChild(noResultItem);
+            }
+        }
+    </script>
+</body>
+</html>
